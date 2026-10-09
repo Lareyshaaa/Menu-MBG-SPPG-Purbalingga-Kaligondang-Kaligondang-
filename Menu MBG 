@@ -1,0 +1,145 @@
+<!DOCTYPE html>
+<html lang="id">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Menu Makan Bergizi Gratis (MBG)</title>
+    <style>
+        :root {
+            --primary: #2ecc71;
+            --secondary: #27ae60;
+            --dark: #2c3e50;
+            --light: #f9f9f9;
+        }
+        * { box-sizing: border-box; margin: 0; padding: 0; font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; }
+        body { background-color: #f0f3f4; color: var:(--dark); padding: 20px; }
+        .container { max-width: 600px; margin: 0 auto; background: white; padding: 20px; border-radius: 15px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); }
+        header { text-align: center; margin-bottom: 25px; border-bottom: 3px solid var(--primary); padding-bottom: 15px; }
+        header h1 { font-size: 24px; color: var(--dark); }
+        header p { color: #7f8c8d; font-size: 14px; margin-top: 5px; }
+        
+        /* Navigasi Tab Hari */
+        .tabs { display: flex; gap: 5px; margin-bottom: 20px; overflow-x: auto; padding-bottom: 5px; }
+        .tab-btn { flex: 1; padding: 10px; background: #e5e8e8; border: none; border-radius: 8px; cursor: pointer; font-weight: bold; color: var(--dark); min-width: 70px; transition: 0.3s; }
+        .tab-btn.active { background: var(--primary); color: white; }
+        
+        /* Konten Menu */
+        .menu-content { display: none; animation: fadeIn 0.5s ease; }
+        .menu-content.active { display: block; }
+        .menu-box { background: var(--light); padding: 15px; border-radius: 10px; border-left: 5px solid var(--primary); margin-bottom: 15px; }
+        .menu-title { font-weight: bold; font-size: 18px; margin-bottom: 10px; color: var(--secondary); }
+        .menu-items li { list-style: none; padding: 5px 0; border-bottom: 1px dashed #d5dbdb; font-size: 15px; }
+        .menu-items li:last-child { border: none; }
+        
+        /* Info Tambahan */
+        .info-gizi { font-size: 12px; background: #e8f8f5; color: #16a085; padding: 10px; border-radius: 8px; margin-top: 10px; }
+        
+        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <header>
+        <h1>MENU MAKAN BERGIZI GRATIS</h1>
+        <p id="periode">Periode: Senin - Jumat (Minggu Ini)</p>
+    </header>
+
+    <!-- Tombol Pilihan Hari -->
+    <div class="tabs">
+        <button class="tab-btn active" onclick="bukaHari(event, 'Senin')">Senin</button>
+        <button class="tab-btn" onclick="bukaHari(event, 'Selasa')">Selasa</button>
+        <button class="tab-btn" onclick="bukaHari(event, 'Rabu')">Rabu</button>
+        <button class="tab-btn" onclick="bukaHari(event, 'Kamis')">Kamis</button>
+        <button class="tab-btn" onclick="bukaHari(event, 'Jumat')">Jumat</button>
+    </div>
+
+    <!-- Konten Menu Per Hari -->
+    <div id="Senin" class="menu-content active">
+        <div class="menu-box">
+            <div class="menu-title">Nasi Ayam Saus Mentega</div>
+            <ul class="menu-items">
+                <li>🌾 Nasi Putih</li>
+                <li>🍗 Ayam Goreng Saus Mentega</li>
+                <li>🥦 Tumis Capcay Jagung Muda</li>
+                <li>🍎 Buah Apel Segar</li>
+                <li>🥛 Susu UHT Putih</li>
+            </ul>
+        </div>
+        <div class="info-gizi">ℹ️ Estimasi Energi: 580 Kcal | Protein: 24g</div>
+    </div>
+
+    <div id="Selasa" class="menu-content">
+        <div class="menu-box">
+            <div class="menu-title">Nasi Daging Sapi Lada Hitam</div>
+            <ul class="menu-items">
+                <li>🌾 Nasi Putih</li>
+                <li>🥩 Daging Sapi Lada Hitam</li>
+                <li>🥕 Sup Bening Wortel & Kentang</li>
+                <li>🍌 Buah Pisang Ambon</li>
+                <li>🥛 Susu UHT Cokelat</li>
+            </ul>
+        </div>
+        <div class="info-gizi">ℹ️ Estimasi Energi: 610 Kcal | Protein: 26g</div>
+    </div>
+
+    <div id="Rabu" class="menu-content">
+        <div class="menu-box">
+            <div class="menu-title">Nasi Ikan Fillet Crispy</div>
+            <ul class="menu-items">
+                <li>🌾 Nasi Putih</li>
+                <li>🐟 Ikan Kakap Fillet Tepung</li>
+                <li>🥬 Cah Sawi Hijau Bakso</li>
+                <li>🍊 Buah Jeruk Manis</li>
+                <li>🥛 Susu UHT Putih</li>
+            </ul>
+        </div>
+        <div class="info-gizi">ℹ️ Estimasi Energi: 575 Kcal | Protein: 23g</div>
+    </div>
+
+    <div id="Kamis" class="menu-content">
+        <div class="menu-box">
+            <div class="menu-title">Nasi Telur Dadar Makmur</div>
+            <ul class="menu-items">
+                <li>🌾 Nasi Putih</li>
+                <li>🍳 Telur Dadar Tebal Spesial</li>
+                <li>🥔 Semur Tahu & Kentang</li>
+                <li>🥦 Tumis Buncis Wortel</li>
+                <li>🍉 Buah Semangka Potong</li>
+            </ul>
+        </div>
+        <div class="info-gizi">ℹ️ Estimasi Energi: 550 Kcal | Protein: 20g</div>
+    </div>
+
+    <div id="Jumat" class="menu-content">
+        <div class="menu-box">
+            <div class="menu-title">Nasi Bento Sehat</div>
+            <ul class="menu-items">
+                <li>🌾 Nasi Kuning Wangi</li>
+                <li>🍗 Rollade Ayam Panggang</li>
+                <li>🌽 Sup Jagung Manis Kental</li>
+                <li>🍈 Buah Melon Potong</li>
+                <li>🥛 Susu UHT Putih</li>
+            </ul>
+        </div>
+        <div class="info-gizi">ℹ️ Estimasi Energi: 590 Kcal | Protein: 22g</div>
+    </div>
+</div>
+
+<script>
+    function bukaHari(evt, namaHari) {
+        var i, tabcontent, tablinks;
+        tabcontent = document.getElementsByClassName("menu-content");
+        for (i = 0; i < tabcontent.length; i++) {
+            tabcontent[i].className = tabcontent[i].className.replace(" active", "");
+        }
+        tablinks = document.getElementsByClassName("tab-btn");
+        for (i = 0; i < tablinks.length; i++) {
+            tablinks[i].className = tablinks[i].className.replace(" active", "");
+        }
+        document.getElementById(namaHari).className += " active";
+        evt.currentTarget.className += " active";
+    }
+</script>
+</body>
+</html>
